@@ -1,0 +1,749 @@
+// Vars
+$light-nav-col: white;
+$light-back: white;
+$light-text-col: black;
+
+
+
+$dark-nav-col: white;
+$dark-back: black;
+$dark-text-col: white;
+
+
+
+html {
+    overflow-x: hidden;
+    
+}
+
+
+body {
+    overflow-x: hidden;
+    background-color: $light-back;
+    color: $light-text-col;
+  }
+//   @media screen and (prefers-color-scheme: dark) {
+//     body {
+//       background-color: $dark-back;
+//       color: $dark-text-col;
+//     }
+//   }
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+    
+}
+
+
+a{
+    text-decoration: none;
+    color: rgb(0,0,0);
+}
+
+nav{
+    display: flex;
+    position: sticky;
+    top: 0;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    // background-color: $nav-back;
+    
+    
+}
+
+
+// Logo Stuff
+
+.logo {
+    display: flex;
+    width: 0px;
+    justify-content: space-between;
+    align-items: center;
+    // color: $nav-col;
+    font-family: 'Work Sans', sans-serif;
+    // letter-spacing: 20px;
+    font-size: 15px;
+    
+
+    
+}
+.zazzi-m {
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    // font-stretch: ultra-expanded;
+    letter-spacing: 2px;
+    padding-right: 15px;
+    // width: 200px;
+}
+
+.zazzicont{
+    letter-spacing: 2px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.archisub{
+    position: relative;
+    top: -1px;
+    font-size: 20px;
+    height: 21px;
+    letter-spacing: 0px;
+}
+
+
+.Baumansub{
+    font-size: 13px;
+    letter-spacing: 0px;
+}
+
+
+
+
+.nav-links {
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    
+}
+.nav-links li{
+    list-style: none;
+}
+
+.nav-links a{
+    // color: $nav-col;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+
+}
+.burger {
+    display: none;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.container {
+    width: 65vw;
+    max-width: 1620px;
+    height: auto;
+    margin: auto;
+}
+.carousel-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    background-color: black;
+}
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+#prevBtn {
+    position: absolute;
+    top: 45%;
+    z-index: 10;
+    left: 0;
+    font-size: 30px;
+    color: white;
+    opacity: 0.95;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: all .2s ease-in-out;
+}
+#prevBtn:hover {
+    background-color: rgb(0,0,0);
+    opacity: 1;
+}
+#prevBtn:active {
+    transform: scale(0.9);
+}
+#nextBtn {
+    position: absolute;
+    top: 45%;
+    z-index: 10;
+    right: 0;
+    font-size: 30px;
+    color: white;
+    opacity: 0.95;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: all .2s ease-in-out;
+}
+#nextBtn:hover {
+    background-color: rgb(0,0,0);
+    opacity: 1;
+}
+#nextBtn:active {
+    transform: scale(0.9);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:924px){
+    .container {
+        width: 100%;
+    }
+}
+@media screen and (max-width:768px){
+    body{
+        overflow-x: hidden;
+    }
+    nav{
+        justify-content: space-between;
+    }
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 10vh;
+        top: 4vh;
+        // background-color: $nav-back;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 90%;
+        justify-content: space-evenly;
+        
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        z-index: 6;
+        
+    }
+    .nav-links li{
+        opacity: 0;
+        z-index: 5;
+    }
+    .burger{
+        display: block;
+        z-index: 10;
+        
+    }
+    .container {
+        width: 100%;
+    }
+    .nav-active{
+        transform: translateX(0%);
+        z-index: 5;
+}
+    // .logo{
+    //     width: 200px;
+    // }
+}
+
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+        z-index: 0;
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+        z-index: 10;
+        background-color: white;
+    }
+}
+
+.toggle{
+
+    .line1{
+        transform: rotate(-45deg) translate((-5px,6px));
+
+    }
+    .line2{
+        opacity: 0;
+
+    }
+    .line3{
+        transform: rotate(45deg) translate((-5px,-6px));
+    }
+}
+
+.hideelem {
+    z-index: -10;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// Team **********************************************************************************************************
+
+
+.teammain{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.teamhead{
+    display: flex;
+    justify-self: center;
+    max-width: 1000px;
+    width: 85%;
+}
+
+.perscontcont{
+    display: flex;
+    
+    align-items: flex-end;
+    justify-content: center;
+    // flex-direction: column;
+    
+
+
+}
+
+
+.personen-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: end;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    width: 85%;
+    // flex-basis: 70vw;
+
+
+
+    .card{
+        margin: 10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: all 0.6s;
+        filter: grayscale(5);
+        z-index: 1;
+    
+        &:hover{
+            filter: grayscale(0);
+            // background-color: aquamarine;
+            
+        }
+        img{
+            width: 400px;
+            border-radius: 10px 10px 0 0;
+            z-index: 2;
+            &:hover {
+                // transform: scale(1.1);
+            }
+        }
+        .card-container{
+            // padding: 2px 16px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-top: 5px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// End Team ******************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Portfolio Start ***********************************************************************************************
+
+
+
+@media screen and (max-width:924px){
+    .port-einleit{
+        width: 100%;
+    }
+    .footer-cont{
+        display: flex;
+        justify-content: space-between;
+        max-width: 1620px;
+        width: 65vw;
+        // height: 500px;
+        flex-direction: column;
+        // background-color: blue;
+    }
+
+    .footer-right{
+        display: flex;
+        border-top-width: 2px;
+        border-top-style: solid;
+        margin-top: 20px;
+
+    }
+}
+
+
+
+
+.port-einleit{
+    // width: 80%;
+    // max-width: 75ch;
+    // display: flex;
+
+    max-width: 1620px;
+    width: 65vw;
+    margin: 0 auto;
+    font-size: larger;
+    // justify-content: flex-start;
+    // align-items: center;
+    // margin: 0 auto;
+    // text-align: center;
+
+    p{
+        
+    //    max-width: 1620px;
+        // width: 100%;
+        
+    }
+
+
+}
+
+
+.projekteShow{
+    display: flex;
+    
+    align-items: flex-end;
+    justify-content: center;
+    // flex-direction: column;
+    
+
+
+}
+
+.outercard{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.project-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: end;
+    flex-wrap: wrap;
+    max-width: 1600px;
+    width: 85%;
+    // flex-basis: 70vw;
+
+
+
+    .card{
+        margin: 10px;
+        // border-radius: 10px;
+        // display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: all 0.6s;
+        height: 360px;
+        // justify-content: space-between;
+        // align-items: ;
+        
+    
+        &:hover{
+            filter: grayscale(0);
+            transform: scale(1.05);
+            // background-color: aquamarine;
+            
+        }
+        &:active{
+            transform: scale(1.02);
+        }
+        img{
+            width: 400px;
+            // min-height: 268px;
+            height: auto;
+            // height: 268;
+            
+            // border-radius: 10px 10px 0 0;
+            &:hover {
+                // transform: scale(1.1);
+            }
+        }
+        // & .isexpandable{
+        //     img{
+        //         display: none;
+        //     }
+        // }
+        
+        .card-container{
+            // padding: 2px 16px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-top: 5px;
+        }
+    }
+}
+
+.grayify{
+    filter: grayscale(1);
+}
+
+
+.port-expand-1{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+
+
+
+
+
+.hidden{
+    display: none;
+}
+
+
+.nongray{
+    // filter: grayscale(0);
+    // transition: all 0.5s;
+    // transform: scale(1.05);
+    // background-color: rgb(129, 255, 192);
+    // transform: translateX(0);
+}
+
+
+
+.innercardpers{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.dotdotdotclass {
+    display: flex;
+    height: 0px;
+    position: relative;
+    left: 350px;
+    bottom: 60px;
+    font-size: 50px;
+    word-spacing: 1px;
+    font-family: 'Work Sans', sans-serif;
+
+}
+
+
+.isexpandable{
+    cursor: pointer;
+}
+
+
+
+// Portfolio Ende ************************************************************************************************
+// Impressum  Start *************************************************************************************************
+
+.impress{
+    width: 65%;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+// Impressum Ende ************************************************************************************************
+// Footer  Start *************************************************************************************************
+
+footer{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-style: solid ;
+    border-width: 5px 0px 0px 0px;
+    border-top-color: rgb(78, 78, 78);
+    margin-top: 50px;
+    // max-width: 1620px;
+    // width: 80vw;
+   
+
+}
+
+.footer-left{
+    display: flex;
+    // position: absolute;
+    // left: 25vw;
+
+
+}
+.footer-right{
+    display: flex;
+    // position: absolute;
+    // right: 25vw;
+
+
+    a{
+        height: 30px;
+    }
+
+
+}
+
+.footfoot{
+    display: flex;
+    flex-direction: row;
+    position: static;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    // align-items: center;
+}
+.footfootleft{
+    display: flex;
+    position: static;
+    // left: 25vw;
+    // bottom: 20px;
+    font-size: 15px;
+    // margin-left: 10px;
+    // margin-bottom: 20px;
+}
+.footfootright{
+    display: flex;
+    position: static;
+    // left: 25vw;
+    // bottom: 20px;
+    font-size: 15px;
+    // margin-left: 10px;
+    // margin-bottom: 20px;
+}
+
+.footer-cont{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1620px;
+    width: 65vw;
+    // flex-direction: row;
+    // margin: 0 auto;
+    // background-color: red;
+
+    
+}
+
+
+.footer-address{
+    b{
+        font-weight: 600;
+    }
+
+}
+
+.alignedTitle{
+    max-width: 1620px;
+    width: 65vw;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Footer   Ende *************************************************************************************************
+
